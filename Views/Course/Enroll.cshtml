@@ -1,0 +1,26 @@
+@model OnlineCourseSystem.Models.EnrollmentViewModel
+
+@{
+    ViewData["Title"] = "Course Enrollment";
+}
+
+<div class="container mt-4">
+    <h3>Enroll in Course</h3>
+    <hr />
+
+    <form asp-action="Enroll" method="post" class="w-50">
+        @Html.AntiForgeryToken()
+
+        <!-- State Management: Hidden Field for CourseId -->
+        <input type="hidden" asp-for="CourseId" />
+
+        <div class="mb-3">
+            <label asp-for="StudentName" class="form-label"></label>
+            <input asp-for="StudentName" class="form-control" placeholder="Enter full name" />
+            <span asp-validation-for="StudentName" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Complete Enrollment</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

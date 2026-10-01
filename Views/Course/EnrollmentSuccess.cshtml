@@ -1,0 +1,23 @@
+@model OnlineCourseSystem.Models.EnrollmentViewModel
+@{
+    var course = ViewBag.SelectedCourse as OnlineCourseSystem.Models.Course;
+}
+
+<div class="container mt-4">
+    <div class="alert alert-success">
+        <h4>@ViewBag.Message</h4>
+        <p>Student Name saved in <strong>Cookie</strong> for future visits.</p>
+    </div>
+
+    @if (course != null)
+    {
+        <div class="card">
+            <div class="card-header">Course Pulled from <strong>Session</strong></div>
+            <div class="card-body">
+                <p><strong>Course:</strong> @course.CourseName</p>
+                <p><strong>Duration:</strong> @course.Duration</p>
+            </div>
+        </div>
+    }
+    <a asp-action="Index" class="btn btn-primary mt-3">Back to Home</a>
+</div>
